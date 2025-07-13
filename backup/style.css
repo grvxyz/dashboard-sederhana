@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f4ff;
+  display: flex;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table th {
+  background-color: #003366;
+  color: white;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #003366;
+  color: white;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: width 0.3s;
+  align-items: center;
+}
+
+.sidebar.closed {
+  width: 75px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 20px;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  box-sizing: border-box;
+  border-radius: 0;
+  transition: background-color 0.3s;
+}
+
+/* Icon tampil hanya saat sidebar tertutup */
+.sidebar ul li a .icon {
+  display: none;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Text tampil hanya saat sidebar terbuka */
+.sidebar ul li a .text {
+  display: inline;
+}
+
+/* Saat sidebar tertutup: tampilkan ikon, sembunyikan teks */
+.sidebar.closed ul li a .icon {
+  display: inline-block;
+}
+
+.sidebar.closed ul li a .text {
+  display: none;
+}
+
+.sidebar ul li a:hover {
+  background-color: #aa882b;
+  color: #003366;
+}
+
+.sidebar ul li a.active {
+  background-color: #FBB803;
+  color: #003366;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  align-items: center;
+  border-radius: 8px;
+  transition: background-color 0.3s, border-radius 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.main {
+  flex: 1;
+  padding: 25px;
+  transition: margin-left 0.3s;
+}
+
+.main.shrink {
+  flex: 1;
+}
+
+.header-utama {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.logo-header {
+  height: 50px;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+@media (max-width: 600px) {
+  .header-utama {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .logo-header {
+    align-self: flex-end;
+  }
+}
